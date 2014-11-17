@@ -41,6 +41,9 @@
 @property (nonatomic, assign) CGFloat barHeight;
 @property (nonatomic, assign) CGFloat barWidth;
 @property (nonatomic, assign) CGFloat marginBar;
+@property (nonatomic, assign) CGFloat labelWidth;
+@property (nonatomic, assign) CGFloat labelHeight;
+@property (nonatomic, assign) UIFont labelFont;
 
 - (void)draw;
 - (void)reset;

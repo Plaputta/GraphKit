@@ -62,6 +62,9 @@ static CGFloat kDefaultAnimationDuration = 2.0;
     self.barHeight = kDefaultBarHeight;
     self.barWidth = kDefaultBarWidth;
     self.marginBar = kDefaultBarMargin;
+    self.labelWidth = kDefaultLabelWidth;
+    self.labelHeight = kDefaultLabelHeight;
+    self.labelFont = [UIFont boldSystemFontOfSize:13];
 }
 
 - (void)setAnimated:(BOOL)animated {
@@ -163,10 +166,10 @@ static CGFloat kDefaultAnimationDuration = 2.0;
     id items = [NSMutableArray arrayWithCapacity:count];
     for (NSInteger idx = 0; idx < count; idx++) {
         
-        CGRect frame = CGRectMake(0, 0, kDefaultLabelWidth, kDefaultLabelHeight);
+        CGRect frame = CGRectMake(0, 0, self.labelWidth, self.labelHeight);
         UILabel *item = [[UILabel alloc] initWithFrame:frame];
         item.textAlignment = NSTextAlignmentCenter;
-        item.font = [UIFont boldSystemFontOfSize:13];
+        item.font = self.labelFont;
         item.textColor = [UIColor lightGrayColor];
         item.text = [self.dataSource titleForBarAtIndex:idx];
         
@@ -186,8 +189,8 @@ static CGFloat kDefaultAnimationDuration = 2.0;
     __block NSInteger idx = 0;
     [self.bars mk_each:^(GKBar *bar) {
         
-        CGFloat labelWidth = kDefaultLabelWidth;
-        CGFloat labelHeight = kDefaultLabelHeight;
+        CGFloat labelWidth = self.labelWidth;
+        CGFloat labelHeight = self.labelHeight;
         CGFloat startX = bar.x - ((labelWidth - self.barWidth) / 2);
         CGFloat startY = (self.height - labelHeight);
         
